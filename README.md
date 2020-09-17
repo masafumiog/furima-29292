@@ -2,17 +2,19 @@
 
 ## users テーブル
 
-| Column   | Type     | Options     |
-| -------- | -------- | ----------- |
-| nickname | string   | null: false |
-| name     | string   | null: false |
-| email    | string   | null: false |
-| password | string   | null: false |
+| Column    | Type     | Options     |
+| --------  | -------- | ----------- |
+| nickname  | string   | null: false |
+| name      | string   | null: false |
+| kananeame | string   | null: false |
+| email     | string   | null: false |
+| password  | string   | null: false |
+| birthday  | string   | null: false |
+
 
 
  ### Association
- - has_many :users
- - has_many :tweets
+ - has_many :items
 
 ## items テーブル
 
@@ -27,35 +29,34 @@
 | price    | string    | null: false |
 | users_id | string    | null: false |
 
+
 ### Association
 -belongs_to : user
--belongs_to : 
-
-## comments テーブル
-
-| Column    | Type      | Options     | 
-| --------- | --------- | ----------- |
-| text      | string    | null: false |
-| users_id  | string    | null: false |
-| goods_id  | string    | null: false |
-
-### Association
--has_one : buy
--has_one : address
+-belongs_to : item
 
 ## buy　テーブル
 
 | Column   | Type       | Options     | 
 | -------- | ---------- | ----------- |
-| name     | string     | null: false |
-| address  | string     | null: false |
-| items_id | references | null: false |
+| users_id  | string    | null: false |
+| goods_id  | string    | null: false | 
+
+### Association
+-has_one : buy
+-has_one : address
 
 ## address テーブル
 
-| Column   | Type       | Options     | 
-| -------- | ---------- | ----------- |
-| address  | string     | null: false |
+| Column      | Type       | Options     | 
+| ----------- | ---------- | ----------- |
+| address     | string     | null: false |
+| buy_id      | string     | null: false |
+| postnumber  | string     | null: false |
+| prefectures | string     | null: false |
+| city        | string     | null: false |
+| buildname   | string     | null: false |
+| tellnumber  | string     | null: false | 
+
 
 
 
