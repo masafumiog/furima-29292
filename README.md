@@ -55,9 +55,9 @@
 | Column      | Type       | Options     | 
 | ----------- | ---------- | ----------- |
 | address     | string     | null: false |
-| buy_id      | string     | null: false |
+| buy_id      | integer    | foreign_key:true |
 | postnumber  | string     | null: false |
-| prefectures | string     | null: false |
+| prefectures | integer    | null: false |
 | city        | string     | null: false |
 | buildname   | string     |             |
 | tellnumber  | string     | null: false | 
