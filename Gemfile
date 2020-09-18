@@ -58,4 +58,4 @@ group :production do
   gem 'rails_12factor'
 end
 
-# コード作成
+gem 'devise'
