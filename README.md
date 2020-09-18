@@ -31,7 +31,7 @@
 | area_id     | integer   | null: false |
 | send_date_id| integer   | null: false |
 | price       | integer   | null: false |
-| user_id     | intger    | foreign_key:true |
+| user_id     | intger    | foreign_key:true ,null: false|
 
 
 ### Association
@@ -40,10 +40,10 @@
 
 ## buys　テーブル
 
-| Column   | Type       | Options         |
-| -------- | ---------- | -----------     |
-| user_id  | intger     | foreign_key:true |
-| item_id  | intger     | foreign_key:true |
+| Column   | Type       | Options          |
+| -------- | ---------- | -----------      |
+| user_id  | intger     | foreign_key:true ,null: false |
+| item_id  | intger     | foreign_key:true ,null: false |
 
 ### Association
 -belong_to : user
@@ -55,7 +55,7 @@
 | Column      | Type       | Options     | 
 | ----------- | ---------- | ----------- |
 | address     | string     | null: false |
-| buy_id      | integer    | foreign_key:true |
+| buy_id      | integer    | foreign_key:true ,null: false|
 | postnumber  | string     | null: false |
 | prefectures | integer    | null: false |
 | city        | string     | null: false |
