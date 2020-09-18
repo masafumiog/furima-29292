@@ -24,14 +24,14 @@
 | Column      | Type      | Options     | 
 | --------    | --------- | ----------- |
 | name        | string    | null: false |
-| text        | string    | null: false |
+| text        | text      | null: false |
 | category_id | integer   | null: false |
 | status_id   | integer   | null: false |
 | burden_id   | integer   | null: false |
 | area_id     | integer   | null: false |
 | send_date_id| integer   | null: false |
 | price       | integer   | null: false |
-| user_id     | intger    | foreign_key:true ,null: false|
+| user_id     | integer   | foreign_key:true ,null: false|
 
 
 ### Association
@@ -42,8 +42,8 @@
 
 | Column   | Type       | Options          |
 | -------- | ---------- | -----------      |
-| user_id  | intger     | foreign_key:true ,null: false |
-| item_id  | intger     | foreign_key:true ,null: false |
+| user_id  | integer     | foreign_key:true ,null: false |
+| item_id  | integer     | foreign_key:true ,null: false |
 
 ### Association
 -belong_to : user
