@@ -30,7 +30,7 @@
 | burden_id   | integer   | null: false |
 | area_id     | integer   | null: false |
 | send_date_id| integer   | null: false |
-| price       | string    | null: false |
+| price       | integer   | null: false |
 | user_id     | intger    | foreign_key:true |
 
 
