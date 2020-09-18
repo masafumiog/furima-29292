@@ -1,24 +1,69 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column    | Type     | Options     |
+| --------  | -------- | ----------- |
+| nickname  | string   | null: false |
+| name_sei  | string   | null: false |
+| name_mei  | stirng   | null: false |
+| kana_sei  | string   | null: false |
+| kana_mei  | string   | null: false |
+| email     | string   | null: false |
+| password  | string   | null: false |
+| birthday  | date     | null: false |
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+ ### Association
+ - has_many :items
+ - has_many :buys
 
-* Database creation
+## items テーブル
 
-* Database initialization
+| Column      | Type      | Options     | 
+| --------    | --------- | ----------- |
+| name        | string    | null: false |
+| text        | text      | null: false |
+| category_id | integer   | null: false |
+| status_id   | integer   | null: false |
+| burden_id   | integer   | null: false |
+| area_id     | integer   | null: false |
+| send_date_id| integer   | null: false |
+| price       | integer   | null: false |
+| user_id     | integer   | foreign_key:true ,null: false|
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+-belongs_to : user
+-has_one : buy
 
-* Deployment instructions
+## buys　テーブル
 
-* ...
+| Column   | Type       | Options          |
+| -------- | ---------- | -----------      |
+| user_id  | integer     | foreign_key:true ,null: false |
+| item_id  | integer     | foreign_key:true ,null: false |
+
+### Association
+-belong_to : user
+-belong_to : item
+-has_one : address
+
+## address テーブル
+
+| Column      | Type       | Options     | 
+| ----------- | ---------- | ----------- |
+| address     | string     | null: false |
+| buy_id      | integer    | foreign_key:true ,null: false|
+| postnumber  | string     | null: false |
+| prefectures | integer    | null: false |
+| city        | string     | null: false |
+| buildname   | string     |             |
+| tellnumber  | string     | null: false | 
+
+
+
+
+### Association
+ -belongs_to : buy
