@@ -1,11 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe 'ユーザー新規登録' do
-
-    it "すべての情報が正しいフォーマットで入力されてていればユーザー登録できる"　do
+      # before文で@userにFactoryBot(:user)で定義したものを代入しましょう
+    before do
       @user = FactoryBot.build(:user)
-      expect(@user).to be_vaild
+    end
+
+  describe 'ユーザー新規登録' do
+    it "すべての情報が正しいフォーマットで入力されてていればユーザー登録できる" do
+     
+      @user = FactoryBot.build(:user)
+      expect(@user).to be_valid
     end
 
     it "nicknameが空だと登録できない" do
@@ -62,57 +67,63 @@ RSpec.describe User, type: :model do
       another_user = FactoryBot.build(:user)
       another_user.email = @user.email
       another_user.valid?
-      expect(another_user.errors.full_messages).to include("Email has aleady been taken")
-    end
+      expect(another_user.errors.full_messages).to include("Email has already been taken")
+     end
 
     it "メールアドレスに@が含まれていないとユーザー登録できない" do
-    @user = FactoryBot.build(:user) 
-    expect(another_user.errors.full_messages).to include("Email has aleady been taken")
-  end
+      @user = FactoryBot.build(:user) 
+      @user.email = "testesgmail.com"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Email is invalid")
+    end
 
   it "パスワードが5文字以下だとユーザー登録できない" do
     @user = FactoryBot.build(:user) 
     @user.password = "a1234"
-    expect(another_user.errors.full_messages).to include("Password is too long (minimum is 6 characters)")
+    @user.valid?
+    expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
   end
+
   it "パスワードが英字のみだとユーザー登録できない" do
-  @user = FactoryBot.build(:user) 
-  @user.password = "asdfgh"
-  expect(@user.errors.full_messages).to include("Password can't be blank")
+    @user = FactoryBot.build(:user) 
+    @user.password = "asdfgh"
+    @user.valid?
+    expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
   end
 
-  it = "パスワードが数字のみだとユーザー登録できない" do
-  @user = FactoryBot.build(:user) 
-  @user.password = "123456"
-  expect(@user.errors.full_messages).to include("Password can't be blank")
+  it  "パスワードが数字のみだとユーザー登録できない" do
+    @user = FactoryBot.build(:user) 
+    @user.password = "123456"
+    @user.valid?
+    expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
   end
 
-    it "姓が全角（漢字・ひらがな・カタカナ）以外だとユーザー登録できない" do
-  @user = FactoryBot.build(:user) 
-  @user.name_sei = "tanaka"
-  @user.valid?
-  expect(@user.errors.full_messages).to include("Name sei can't be blank")
+  it "姓が全角（漢字・ひらがな・カタカナ）以外だとユーザー登録できない" do
+    @user = FactoryBot.build(:user) 
+    @user.name_sei = "tanaka"
+    @user.valid?
+    expect(@user.errors.full_messages).to include("Name sei is invalid. Input full-width characters.")
   end
 
- it "名が全角（漢字・ひらがな・カタカナ）以外だとユーザー登録できない" do
-  @user = FactoryBot.build(:user) 
-  @user.name_mai = "taro"
-  @user.valid?
-  expect(@user.errors.full_messages).to include("Name sei can't be blank")
+  it "名が全角（漢字・ひらがな・カタカナ）以外だとユーザー登録できない" do
+    @user = FactoryBot.build(:user) 
+    @user.name_mai = "taro"
+    @user.valid?
+    expect(@user.errors.full_messages).to include("Name mai is invalid. Input full-width characters.")
   end
 
-  it "姓のフリガナが全角（カタカナ）以外だとユーザー登録できない"
-  @user = FactoryBot.build(:user) 
-  @user.kana_sei = "たなか"
-  @user.valid?
-  expect(@user.errors.full_messages).to include("Kana sei can't be blank")
+  it "姓のフリガナが全角（カタカナ）以外だとユーザー登録できない" do
+    @user = FactoryBot.build(:user) 
+    @user.kana_sei = "たなか"
+    @user.valid?
+    expect(@user.errors.full_messages).to include("Kana sei is invalid. Input full-width katakana characters.")
   end
 
-it "名のフリガナが全角（カタカナ）以外だとユーザー登録でき" do
-  @user = FactoryBot.build(:user) 
-      @user.kana_mei = "たろう"
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Kana sei can't be blank")
-    end
+  it "名のフリガナが全角（カタカナ）以外だとユーザー登録できない" do
+    @user = FactoryBot.build(:user) 
+    @user.kana_mei = "たろう"
+    @user.valid?
+    expect(@user.errors.full_messages).to include("Kana mei is invalid. Input full-width katakana characters.")
+  end
   end
 end
