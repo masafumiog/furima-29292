@@ -29,7 +29,7 @@
 | status_id   | integer   | null: false |
 | burden_id   | integer   | null: false |
 | area_id     | integer   | null: false |
-| send_date_id| integer   | null: false |
+| send_day_id| integer   | null: false |
 | price       | integer   | null: false |
 | user_id     | integer   | foreign_key:true ,null: false|
 
@@ -38,7 +38,7 @@
 -belongs_to : user
 -has_one : buy
 
-## buys　テーブル
+## buys テーブル
 
 | Column   | Type       | Options          |
 | -------- | ---------- | -----------      |
