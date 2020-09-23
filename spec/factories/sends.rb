@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :send_day do
+  factory :send do
     
   end
 end

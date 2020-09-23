@@ -11,9 +11,11 @@ class ItemsController < ApplicationController
 
   def create
     Item.create(item_params)
+  end
 
-  privateｆ
-  der item_params
+
+  private
+  def item_params
     params.repuire(:items).permit(:name, :image, :text)
   end
 
