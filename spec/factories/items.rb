@@ -6,7 +6,7 @@ FactoryBot.define do
     status_id              {2}
     burden_id              {2}
     area_id                {2}
-    send_id                {2}
+    send_time_id           {2}
     price                  {3000}
 
     after(:build) do |item|
