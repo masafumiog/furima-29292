@@ -6,7 +6,7 @@ RSpec.describe Item, type: :model do
   end
 
   describe '商品出品登録' do
-    it "全ての情報が正しいフォーマットで入力されていればユーザー登録できる" do
+    it "全ての情報が正しいフォーマットで入力されていれば商品出品ができる" do
       @item = FactoryBot.build(:user)
       expect(@item).to be_valid
     end
@@ -57,6 +57,18 @@ RSpec.describe Item, type: :model do
       @item.price = ""
       @item.valid?
       expect(@item.errors.full_messages).to include("Price can't be blank")
+    end
+
+    it "299円以下の場合出品できない" do
+      @item.price = 100
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+    end
+
+    it "10000000円以上の場合出品できない" do
+      @item.price = 10000001
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
     end
   end
 end
