@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
 
-  # def index
-  #   @items = Item.all
-  #   @items = Item.order("created_at DESC")
-  # end
+  def index
+    @items = Item.all
+    @items = Item.order("created_at DESC")
+  end
 
   def new
     @item = Item.new
@@ -18,6 +18,11 @@ class ItemsController < ApplicationController
       render :new 
     end
   end
+
+  # def  done
+  #   @item= Product.find(params[:id])
+  #   @item.update( item_id: current_user.id)
+  #  end
 
   private
   def item_params
