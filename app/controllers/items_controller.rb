@@ -30,7 +30,6 @@ class ItemsController < ApplicationController
     if @item.user_id == current_user.id
       if @item.update(item_params)
         redirect_to item_path(@item.id)
-        @item.destroy
       else
         render :edit
       end
