@@ -6,6 +6,11 @@ class TopController < ApplicationController
     @items = Item.order("created_at DESC")
   end
 
+  # def edit
+  #   @tweet = Item.find(params[:id])
+  # end
+
+
   # def show
   #   @item = Item.find(params[:id])
   # end

@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   post 'items/new'
 
   
-  resources :items, only: [:index, :new, :create, :show] do
+  resources :items, only: [:index, :new, :create, :show,:edit, :update] do
   end
 end

@@ -23,6 +23,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+
+  def edit
+    @tweet = Item.find(params[:id])
+  end
+  
   # def  done
   #   @item= Product.find(params[:id])
   #   @item.update( item_id: current_user.id)
