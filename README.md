@@ -21,17 +21,17 @@
 
 ## items テーブル
 
-| Column      | Type      | Options     | 
-| --------    | --------- | ----------- |
-| name        | string    | null: false |
-| text        | text      | null: false |
-| category_id | integer   | null: false |
-| status_id   | integer   | null: false |
-| burden_id   | integer   | null: false |
-| area_id     | integer   | null: false |
-| send_id     | integer   | null: false |
-| price       | integer   | null: false |
-| user_id     | integer   | foreign_key:true ,null: false|
+| Column       | Type      | Options     | 
+| --------     | --------- | ----------- |
+| name         |  string    | null: false |
+| text         | text      | null: false |
+| category_id  | integer   | null: false |
+| status_id    | integer   | null: false |
+| burden_id    | integer   | null: false |
+| area_id      | integer   | null: false |
+| send_time_id | integer   | null: false |
+| price        | integer   | null: false |
+| user_id      | integer   | foreign_key:true ,null: false|
 
 
 ### Association
@@ -40,8 +40,8 @@
 
 ## buys テーブル
 
-| Column   | Type       | Options          |
-| -------- | ---------- | -----------      |
+| Column   | Type        | Options          |
+| -------- | ----------  | -----------      |
 | user_id  | integer     | foreign_key:true ,null: false |
 | item_id  | integer     | foreign_key:true ,null: false |
 
