@@ -57,7 +57,7 @@
 | address     | string     | null: false |
 | buy_id      | integer    | foreign_key:true ,null: false|
 | postnumber  | string     | null: false |
-| prefectures | integer    | null: false |
+| prefecture | integer    | null: false |
 | city        | string     | null: false |
 | buildname   | string     |             |
 | tellnumber  | string     | null: false | 
