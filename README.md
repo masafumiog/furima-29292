@@ -38,7 +38,7 @@
 -belongs_to : user
 -has_one : buy
 
-## orders テーブル
+## buys テーブル
 
 | Column   | Type        | Options          |
 | -------- | ----------  | -----------      |
@@ -50,7 +50,7 @@
 -belong_to : item
 -has_one : address
 
-## address テーブル
+## orders テーブル
 
 | Column      | Type       | Options     | 
 | ----------- | ---------- | ----------- |
@@ -66,4 +66,4 @@
 
 
 ### Association
- -belongs_to : order
+ -belongs_to : buy

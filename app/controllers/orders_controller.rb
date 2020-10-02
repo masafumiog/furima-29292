@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
   end
   
   def create
-    @order = OrderForm.new(order_params)
+    @order = OrderBuy.new(order_params)
     if @order.valid?
       pay_item
       @order.save
