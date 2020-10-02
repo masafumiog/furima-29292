@@ -7,15 +7,17 @@ window.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const formResult = document.getElementById("charge-form");
-    const formData = new FormData(formResult);
+    const formData = new OrderBuy(formResult);
     const card = {
       number: formData.get("card-number"),
       cvc: formData.get("card-cvc"),
       exp_month: formData.get("card-exp-month"),
       exp_year: `20${formData.get("card-exp-year")}`,
     };
+    // console.log(card)
     
     Payjp.createToken(card, (status, response) => {
+      // console.log(status)
       if (status == 200) {
         const token = response.id;
         const renderDom = document.getElementById("charge-form");
