@@ -48,7 +48,7 @@
 ### Association
 -belong_to : user
 -belong_to : item
--has_one : address
+-has_one : order
 
 ## orders テーブル
 

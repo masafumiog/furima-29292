@@ -6,7 +6,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.string :city          ,null:false
       t.string :tellnumber    ,null:false
       t.integer :buy_id       ,foreign_key:true, null:false
-      t.integer :prefectuer_id  ,null:false
+      t.integer :prefecture_id  ,null:false
       t.string :buildname     
 
       t.timestamps

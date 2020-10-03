@@ -21,7 +21,7 @@ class OrderBuy
        item_id: item_id,
       )
     Order.create(
-      postnumber:postnumber,
+      postnumber: postnumber,
       prefecture_id: prefecture_id,
       city: city, 
       buildname: buildname, 
