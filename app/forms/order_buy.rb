@@ -8,7 +8,7 @@ class OrderBuy
     validates :user_id
     validates :token
     validates :postnumber, format: { with: /\A\d{3}[-]\d{4}\z/, message: "is invalid. Input '-'"}
-    validates :prefecture_id
+    validates :prefecture_id, numericality: { other_than: 1 } 
     validates :city
     validates :address
     validates :tellnumber, format: { with: /\A[0-9]+\z/, message: "is invalid. Input all number"}
