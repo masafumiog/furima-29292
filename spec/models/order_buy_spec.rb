@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Order, type: :model do
+RSpec.describe OrderBuy, type: :model do
   before do
     user = FactoryBot.create(:user)
     item = FactoryBot.create(:item)
@@ -23,7 +23,7 @@ RSpec.describe Order, type: :model do
     context '商品購入がうまくいかないとき' do
 
       it "郵便番号が空のときは購入できない" do
-        @order.postnumber = ""
+        @order.potnum = ""
         @order.valid?
         expect(@order.errors.full_messages).to include("Postnumber can't be blank")
       end
