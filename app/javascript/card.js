@@ -9,10 +9,10 @@ window.addEventListener("DOMContentLoaded", () => {
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
     const card = {
-      number: formData.get("card-number"),
-      cvc: formData.get("card-cvc"),
-      exp_month: formData.get("card-exp-month"),
-      exp_year: `20${formData.get("card-exp-year")}`,
+      number: formData.get("card_number"),
+      cvc: formData.get("card_cvc"),
+      exp_month: formData.get("card_exp_month"),
+      exp_year: `20${formData.get("card_exp_year")}`,
     };
     
     Payjp.createToken(card, (status, response) => {
@@ -23,10 +23,10 @@ window.addEventListener("DOMContentLoaded", () => {
         renderDom.insertAdjacentHTML
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
       }
-      document.getElementById("card-number").removeAttribute("name");
-      document.getElementById("card-cvc").removeAttribute("name");
-      document.getElementById("card-exp-month").removeAttribute("name");
-      document.getElementById("card-exp-year").removeAttribute("name");
+      document.getElementById("card_number").removeAttribute("name");
+      document.getElementById("card_cvc").removeAttribute("name");
+      document.getElementById("card_exp_month").removeAttribute("name");
+      document.getElementById("card_exp_year").removeAttribute("name");
       
       
       document.getElementById("charge-form").submit();

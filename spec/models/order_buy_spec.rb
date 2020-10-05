@@ -58,6 +58,9 @@ RSpec.describe OrderBuy, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Tellnumber is invalid. Input all number")
       end
+      it "電話番号がハイフンがあると購入できない" do
+        @order.tellnumber = "123-1234-1234"
+        @order.valid?
     end
   end
 end
