@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
   before_action :set_item, only: [:index, :create, :login]
   before_action :login
+  before_action :move_index_check, only: [:index]
   
   def index
     @order = Order.new
@@ -43,5 +44,12 @@ class OrdersController < ApplicationController
     if user_signed_in? && @item.user_id == current_user.id
       redirect_to root_path
     end
+  end
+end
+
+def move_index_check
+  item_find
+  if order.find(item_id: params[:item_id])|| (@item.user_id == current_user.id)
+    redirect_to root_path
   end
 end
