@@ -9,6 +9,6 @@ FactoryBot.define do
     buildname       {"横浜タワー"}
     
     user_id        {:user}
-    itam_id        {:item}
+    item_id        {:item}
   end
 end

@@ -5,7 +5,7 @@ RSpec.describe OrderBuy, type: :model do
     user = FactoryBot.create(:user)
     item = FactoryBot.create(:item)
     sleep 2
-    @order = FactoryBot.build(:orderBuy, user_id: user.id, item_id: item.id)
+    @order = FactoryBot.build(:OrderBuy, user_id: user.id, item_id: item.id)
   end
   describe '商品購入' do
 
@@ -15,7 +15,8 @@ RSpec.describe OrderBuy, type: :model do
         expect(@order).to be_valid
       end
       it "建物名が空のときでも購入できる" do
-        @order.building = ""
+        @order.buildname = ""
+        expect(@order).to be_valid
       end
 
     end
@@ -23,7 +24,7 @@ RSpec.describe OrderBuy, type: :model do
     context '商品購入がうまくいかないとき' do
 
       it "郵便番号が空のときは購入できない" do
-        @order.potnum = ""
+        @order.postnumber = ""
         @order.valid?
         expect(@order.errors.full_messages).to include("Postnumber can't be blank")
       end
@@ -33,7 +34,7 @@ RSpec.describe OrderBuy, type: :model do
         expect(@order.errors.full_messages).to include("Postnumber is invalid. Input '-'")
       end
       it "都道府県が空(1)のときは購入できない" do
-        @order.prefectures_id = "1"
+        @order.prefecture_id = "1"
         @order.valid?
         expect(@order.errors.full_messages).to include("Prefecture must be other than 1")
       end
