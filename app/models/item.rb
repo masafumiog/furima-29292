@@ -8,6 +8,7 @@ class Item < ApplicationRecord
 
   has_one_attached :image
   belongs_to :user
+  has_one :buy
 
   validates :name, :text, :category_id, :status_id, :burden_id, :area_id, :send_time_id, :price, :image, presence:true
   validates :category_id, :status_id, :burden_id, :area_id, :send_time_id, numericality: { other_than: 1 } 
